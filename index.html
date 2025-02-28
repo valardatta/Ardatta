@@ -1,0 +1,115 @@
+<html>
+<head>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+    <style>
+        .hover-grow:hover {
+            transform: scale(1.1);
+            transition: transform 0.3s;
+        }
+        .active-grow:active {
+            transform: scale(1.1);
+            transition: transform 0.1s;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 flex items-center justify-center min-h-screen">
+    <div class="w-full max-w-4xl mx-auto p-4">
+        <!-- Header Section -->
+        <div class="flex justify-between items-center mb-8">
+            <img alt="Logo SMAN 1 Cikampek" class="h-16 w-16 hover-grow active-grow" height="100" src="c:\Users\ivala\Downloads\ab6895b8-b80c-4841-bf99-a3439e3e47df.png" width="100"/>
+            <div class="text-right">
+                <p class="text-2xl font-bold text-gray-800">
+                    SMAN 1 Cikampek
+                </p>
+                <p class="text-lg text-gray-600">
+                    Absensi Siswa
+                </p>
+            </div>
+        </div>
+        <!-- Instruction Section -->
+        <div class="bg-white rounded-lg shadow p-8 mb-8 text-center hover-grow active-grow">
+            <h1 class="text-4xl font-bold text-blue-600 mb-4">
+                Silakan Tap Kartu Pelajar atau Scan QR
+            </h1>
+            <div class="flex justify-center items-center space-x-4">
+                <div class="flex flex-col items-center">
+                    <i class="fas fa-id-card text-6xl text-blue-600 mb-2 hover-grow active-grow"></i>
+                    <p class="text-xl text-gray-700">
+                        Tap Kartu
+                    </p>
+                </div>
+                <div class="flex flex-col items-center">
+                    <i class="fas fa-qrcode text-6xl text-blue-600 mb-2 hover-grow active-grow"></i>
+                    <p class="text-xl text-gray-700">
+                        Scan QR
+                    </p>
+                </div>
+            </div>
+        </div>
+        <!-- Real-Time Feedback Section -->
+        <div class="bg-white rounded-lg shadow p-8 mb-8 text-center hover-grow active-grow">
+            <h2 class="text-3xl font-bold text-gray-800 mb-4">
+                Absensi Real-Time
+            </h2>
+            <div class="flex justify-center items-center space-x-4">
+                <div class="bg-green-100 rounded-lg p-4 text-center hover-grow active-grow">
+                    <h3 class="text-2xl font-bold text-green-600">
+                        Nama Siswa
+                    </h3>
+                    <p class="text-xl text-gray-700">
+                        Kelas: X IPA 1
+                    </p>
+                    <p class="text-xl text-green-600">
+                        Status: ✔ Berhasil Absen
+                    </p>
+                </div>
+                <div class="bg-red-100 rounded-lg p-4 text-center hover-grow active-grow">
+                    <h3 class="text-2xl font-bold text-red-600">
+                        Nama Siswa
+                    </h3>
+                    <p class="text-xl text-gray-700">
+                        Kelas: X IPA 2
+                    </p>
+                    <p class="text-xl text-red-600">
+                        Status: ✖ Kartu Tidak Terdaftar! Hubungi Admin
+                    </p>
+                </div>
+            </div>
+        </div>
+        <!-- Total Attendance Display -->
+        <div class="bg-white rounded-lg shadow p-8 mb-8 text-center hover-grow active-grow">
+            <h2 class="text-3xl font-bold text-gray-800 mb-4">
+                Total Murid Absen Hari Ini
+            </h2>
+            <p class="text-5xl font-bold text-green-600">
+                120/200
+            </p>
+        </div>
+        <!-- Footer Section with Clock -->
+        <div class="flex justify-between items-center">
+            <div class="text-left">
+                <p class="text-xl text-gray-700">
+                    Jumlah Siswa: 200
+                </p>
+            </div>
+            <div class="text-right">
+                <p class="text-2xl font-bold text-gray-800" id="clock">
+                    00:00:00
+                </p>
+            </div>
+        </div>
+    </div>
+    <script>
+        function updateClock() {
+            const now = new Date();
+            const hours = String(now.getHours()).padStart(2, '0');
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+            const seconds = String(now.getSeconds()).padStart(2, '0');
+            document.getElementById('clock').textContent = `${hours}:${minutes}:${seconds}`;
+        }
+        setInterval(updateClock, 1000);
+        updateClock();
+    </script>
+</body>
+</html>
